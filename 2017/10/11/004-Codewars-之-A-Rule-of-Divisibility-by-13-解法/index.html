@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wiken.top">
-  <title>Tag: Python | Wiken</title>
+  <title>004. Codewars 之 A Rule of Divisibility by 13 解法 | Wiken</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="分享知识">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Wiken">
-<meta property="og:url" content="http://wiken.top/tags/Python/index.html">
+  <meta name="description" content="题目：     When you divide the successive powers of 10 by 13 you get the following remainders of the integer divisions:   1, 10, 9, 12, 3, 4.   Then the whole pattern repeats.   Hence the following metho">
+<meta name="keywords" content="Codewars,Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="004. Codewars 之 A Rule of Divisibility by 13 解法">
+<meta property="og:url" content="http://wiken.top/2017/10/11/004-Codewars-之-A-Rule-of-Divisibility-by-13-解法/index.html">
 <meta property="og:site_name" content="Wiken">
-<meta property="og:description" content="分享知识">
+<meta property="og:description" content="题目：     When you divide the successive powers of 10 by 13 you get the following remainders of the integer divisions:   1, 10, 9, 12, 3, 4.   Then the whole pattern repeats.   Hence the following metho">
+<meta property="og:updated_time" content="2017-10-11T03:22:46.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wiken">
-<meta name="twitter:description" content="分享知识">
+<meta name="twitter:title" content="004. Codewars 之 A Rule of Divisibility by 13 解法">
+<meta name="twitter:description" content="题目：     When you divide the successive powers of 10 by 13 you get the following remainders of the integer divisions:   1, 10, 9, 12, 3, 4.   Then the whole pattern repeats.   Hence the following metho">
   
     <link rel="alternative" href="/atom.xml" title="Wiken" type="application/atom+xml">
   
@@ -146,36 +148,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-004-Codewars-之-A-Rule-of-Divisibility-by-13-解法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      004. Codewars 之 A Rule of Divisibility by 13 解法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/10/11/004-Codewars-之-A-Rule-of-Divisibility-by-13-解法/" class="archive-article-date">
+
+        
+        <a href="/2017/10/11/004-Codewars-之-A-Rule-of-Divisibility-by-13-解法/" class="archive-article-date">
   	<time datetime="2017-10-11T02:56:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/10/11/004-Codewars-之-A-Rule-of-Divisibility-by-13-解法/">004. Codewars 之 A Rule of Divisibility by 13 解法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+	
+		<p>题目：</p>
+<blockquote>
+<p>   When you divide the successive powers of <code>10</code> by <code>13</code> you get the following remainders of the integer divisions:<br>   <code>1, 10, 9, 12, 3, 4</code>.<br>   Then the whole pattern repeats.<br>   Hence the following method: Multiply the right most digit of the number with the left most number in the sequence shown above, the second right most digit to the second left most digit of the number in the sequence. The cycle goes on and you sum all these products. Repeat this process until the sequence of sums is stationary.<br>   …………………………………………………………………<br>   Example: What is the remainder when <code>1234567</code> is divided by <code>13</code>?<br>   <code>7×1 + 6×10 + 5×9 + 4×12 + 3×3 + 2×4 + 1×1 = 178</code><br>   We repeat the process with 178:<br>   <code>8x1 + 7x10 + 1x9 = 87</code><br>   and again with 87:<br>   <code>7x1 + 8x10 = 87</code><br>   …………………………………………………………………<br>   From now on the sequence is stationary and the remainder of <code>1234567</code> by <code>13</code> is the same as the remainder of <code>87</code> by <code>13</code>: <code>9</code><br>   Call <code>thirt</code> the function which processes this sequence of operations on an integer <code>n (&gt;=0)</code>. <code>thirt</code> will return the stationary number.<br>   <code>thirt(1234567)</code> calculates 178, then 87, then 87 and returns <code>87</code>.<br>   <code>thirt(321)</code> calculates 48, 48 and returns <code>48</code></p>
+</blockquote>
+<a id="more"></a>
+<p>个人解答：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">remainders = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">3</span>, <span class="number">4</span>]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">thirt</span><span class="params">(n)</span>:</span></div><div class="line">    sum = <span class="number">0</span></div><div class="line">    <span class="keyword">for</span> i, v <span class="keyword">in</span> enumerate(reversed(str(n))):</div><div class="line">        sum += int(v) * remainders[i % <span class="number">6</span>]</div><div class="line">    <span class="keyword">if</span> sum == n:</div><div class="line">        <span class="keyword">return</span> sum</div><div class="line">    <span class="keyword">return</span> thirt(sum)</div></pre></td></tr></table></figure></p>
+<p>网友（nhpatt, pompeu2004）最佳实践：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">array = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">3</span>, <span class="number">4</span>]</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">thirt</span><span class="params">(n)</span>:</span></div><div class="line">    total = sum([int(c) * array[i % <span class="number">6</span>] <span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(reversed(str(n)))])</div><div class="line">    <span class="keyword">if</span> n == total:</div><div class="line">        <span class="keyword">return</span> total</div><div class="line">    <span class="keyword">return</span> thirt(total)</div></pre></td></tr></table></figure></p>
 
-        <div class="article-info info-on-right">
-          
+	
+
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -191,7 +198,7 @@
 		</ul>
 	</div>
 
-          
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -204,176 +211,39 @@
 	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/13/003-Codewars-之-Multiples-of-3-and-5-解法/" class="archive-article-date">
-  	<time datetime="2017-04-13T10:48:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-13</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/003-Codewars-之-Multiples-of-3-and-5-解法/">003. Codewars 之 Multiples of 3 and 5 解法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Codewars</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/13/002-Codewars-之-Unique-In-Order-解法/" class="archive-article-date">
-  	<time datetime="2017-04-13T10:05:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/002-Codewars-之-Unique-In-Order-解法/">002. Codewars 之 Unique In Order 解法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Codewars</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/04/13/001-Codewars-之-Shortest-Word-解法/" class="archive-article-date">
-  	<time datetime="2017-04-13T09:51:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/04/13/001-Codewars-之-Shortest-Word-解法/">001. Codewars 之 Shortest Word 解法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Codewars</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/算法/" class="article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+    <a href="/2017/04/13/003-Codewars-之-Multiples-of-3-and-5-解法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          003. Codewars 之 Multiples of 3 and 5 解法
+        
+      </div>
+    </a>
   
   
-    </div></section>
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-    
+
 
 
           </div>
@@ -402,9 +272,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
