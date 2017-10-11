@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://wiken.top/2017/04/13/002-Codewars-之-Unique-In-Order-解法/index.html">
 <meta property="og:site_name" content="Wiken">
 <meta property="og:description" content="题目：     Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original or">
-<meta property="og:updated_time" content="2017-08-25T14:13:36.578Z">
+<meta property="og:updated_time" content="2017-10-11T04:39:13.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="002. Codewars 之 Unique In Order 解法">
 <meta name="twitter:description" content="题目：     Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original or">
@@ -175,6 +175,7 @@
 </blockquote>
 <a id="more"></a>
 <p>个人解答：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">unique_in_order</span><span class="params">(iterable)</span>:</span></div><div class="line">    pre_item = <span class="keyword">None</span></div><div class="line">    result = []</div><div class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> iterable:</div><div class="line">        <span class="keyword">if</span> item != pre_item:</div><div class="line">            result.append(item)</div><div class="line">            pre_item = item</div><div class="line">    <span class="keyword">return</span> result</div></pre></td></tr></table></figure></p>
+<p>网友（kmeshu09 等）最佳实践：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">unique_in_order</span><span class="params">(iterable)</span>:</span></div><div class="line">    result = []</div><div class="line">    prev = <span class="keyword">None</span></div><div class="line">    <span class="keyword">for</span> char <span class="keyword">in</span> iterable[<span class="number">0</span>:]:</div><div class="line">        <span class="keyword">if</span> char != prev:</div><div class="line">            result.append(char)</div><div class="line">            prev = char</div><div class="line">    <span class="keyword">return</span> result</div></pre></td></tr></table></figure></p>
 
 	
 

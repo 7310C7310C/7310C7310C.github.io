@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://wiken.top/2017/04/13/001-Codewars-之-Shortest-Word-解法/index.html">
 <meta property="og:site_name" content="Wiken">
 <meta property="og:description" content="题目：     x Simple, given a string of words, return the length of the shortest word(s).String will never be empty and you do not need to account for different data types.">
-<meta property="og:updated_time" content="2017-08-25T14:13:36.553Z">
+<meta property="og:updated_time" content="2017-10-11T04:40:14.683Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="001. Codewars 之 Shortest Word 解法">
 <meta name="twitter:description" content="题目：     x Simple, given a string of words, return the length of the shortest word(s).String will never be empty and you do not need to account for different data types.">
@@ -175,6 +175,7 @@
 </blockquote>
 <a id="more"></a>
 <p>个人解答：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_short</span><span class="params">(s)</span>:</span></div><div class="line">    word_list = s.split()</div><div class="line">    len_list = []</div><div class="line">    <span class="keyword">for</span> word <span class="keyword">in</span> word_list:</div><div class="line">        len_list.append(len(word))</div><div class="line">    l = min(len_list)</div><div class="line">    <span class="keyword">return</span> l</div></pre></td></tr></table></figure></p>
+<p>网友（MiraliN 等）最佳实践：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_short</span><span class="params">(s)</span>:</span></div><div class="line">    <span class="keyword">return</span> min(len(x) <span class="keyword">for</span> x <span class="keyword">in</span> s.split())</div></pre></td></tr></table></figure></p>
 
 	
 
