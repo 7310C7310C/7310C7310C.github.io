@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://wiken.top">
-  <title>Codewars 之 A Rule of Divisibility by 13 解法 | Wiken</title>
+  <title>Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（一） | Wiken</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目：     When you divide the successive powers of 10 by 13 you get the following remainders of the integer divisions:   1, 10, 9, 12, 3, 4.   Then the whole pattern repeats.   Hence the following metho">
-<meta name="keywords" content="Codewars,Python">
+  <meta name="description" content="网址：www.wiken.app淘宝商品搜索网站搭建第一步：程序逻辑的设计与编写">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Codewars 之 A Rule of Divisibility by 13 解法">
-<meta property="og:url" content="http://wiken.top/2017/10/11/004-Codewars-之-A-Rule-of-Divisibility-by-13-解法/index.html">
+<meta property="og:title" content="Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（一）">
+<meta property="og:url" content="http://wiken.top/2018/06/17/005-Python-+-Flask-+-uWSGI-+-Nginx-搭建淘宝商品搜索网站（一）/index.html">
 <meta property="og:site_name" content="Wiken">
-<meta property="og:description" content="题目：     When you divide the successive powers of 10 by 13 you get the following remainders of the integer divisions:   1, 10, 9, 12, 3, 4.   Then the whole pattern repeats.   Hence the following metho">
+<meta property="og:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第一步：程序逻辑的设计与编写">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-27T02:05:43.573Z">
+<meta property="og:updated_time" content="2018-06-27T02:59:58.341Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Codewars 之 A Rule of Divisibility by 13 解法">
-<meta name="twitter:description" content="题目：     When you divide the successive powers of 10 by 13 you get the following remainders of the integer divisions:   1, 10, 9, 12, 3, 4.   Then the whole pattern repeats.   Hence the following metho">
+<meta name="twitter:title" content="Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（一）">
+<meta name="twitter:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第一步：程序逻辑的设计与编写">
   
     <link rel="alternative" href="/atom.xml" title="Wiken" type="application/atom+xml">
   
@@ -155,20 +155,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-004-Codewars-之-A-Rule-of-Divisibility-by-13-解法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-005-Python-+-Flask-+-uWSGI-+-Nginx-搭建淘宝商品搜索网站（一）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Codewars 之 A Rule of Divisibility by 13 解法
+      Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（一）
     </h1>
   
 
         
-        <a href="/2017/10/11/004-Codewars-之-A-Rule-of-Divisibility-by-13-解法/" class="archive-article-date">
-  	<time datetime="2017-10-11T02:56:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+        <a href="/2018/06/17/005-Python-+-Flask-+-uWSGI-+-Nginx-搭建淘宝商品搜索网站（一）/" class="archive-article-date">
+  	<time datetime="2018-06-17T03:36:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-17</time>
 </a>
         
       </header>
@@ -176,14 +176,9 @@
     <div class="article-entry" itemprop="articleBody">
       
 	
-		<p>题目：</p>
-<blockquote>
-<p>   When you divide the successive powers of <code>10</code> by <code>13</code> you get the following remainders of the integer divisions:<br>   <code>1, 10, 9, 12, 3, 4</code>.<br>   Then the whole pattern repeats.<br>   Hence the following method: Multiply the right most digit of the number with the left most number in the sequence shown above, the second right most digit to the second left most digit of the number in the sequence. The cycle goes on and you sum all these products. Repeat this process until the sequence of sums is stationary.<br>   …………………………………………………………………<br>   Example: What is the remainder when <code>1234567</code> is divided by <code>13</code>?<br>   <code>7×1 + 6×10 + 5×9 + 4×12 + 3×3 + 2×4 + 1×1 = 178</code><br>   We repeat the process with 178:<br>   <code>8x1 + 7x10 + 1x9 = 87</code><br>   and again with 87:<br>   <code>7x1 + 8x10 = 87</code><br>   …………………………………………………………………<br>   From now on the sequence is stationary and the remainder of <code>1234567</code> by <code>13</code> is the same as the remainder of <code>87</code> by <code>13</code>: <code>9</code><br>   Call <code>thirt</code> the function which processes this sequence of operations on an integer <code>n (&gt;=0)</code>. <code>thirt</code> will return the stationary number.<br>   <code>thirt(1234567)</code> calculates 178, then 87, then 87 and returns <code>87</code>.<br>   <code>thirt(321)</code> calculates 48, 48 and returns <code>48</code></p>
-</blockquote>
+		<p>网址：<a href="http://wiken.app" target="_blank" rel="noopener">www.wiken.app</a><br>淘宝商品搜索网站搭建第一步：程序逻辑的设计与编写</p>
 <a id="more"></a>
-<p>个人解答：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">remainders = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">thirt</span><span class="params">(n)</span>:</span></span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i, v <span class="keyword">in</span> enumerate(reversed(str(n))):</span><br><span class="line">        sum += int(v) * remainders[i % <span class="number">6</span>]</span><br><span class="line">    <span class="keyword">if</span> sum == n:</span><br><span class="line">        <span class="keyword">return</span> sum</span><br><span class="line">    <span class="keyword">return</span> thirt(sum)</span><br></pre></td></tr></table></figure></p>
-<p>网友（nhpatt, pompeu2004）最佳实践：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">array = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">9</span>, <span class="number">12</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">thirt</span><span class="params">(n)</span>:</span></span><br><span class="line">    total = sum([int(c) * array[i % <span class="number">6</span>] <span class="keyword">for</span> i, c <span class="keyword">in</span> enumerate(reversed(str(n)))])</span><br><span class="line">    <span class="keyword">if</span> n == total:</span><br><span class="line">        <span class="keyword">return</span> total</span><br><span class="line">    <span class="keyword">return</span> thirt(total)</span><br></pre></td></tr></table></figure></p>
-
+<h1 id="获取淘宝搜索结果网页源代码"><a href="#获取淘宝搜索结果网页源代码" class="headerlink" title="获取淘宝搜索结果网页源代码"></a>获取淘宝搜索结果网页源代码</h1><h1 id="提取商品信息"><a href="#提取商品信息" class="headerlink" title="提取商品信息"></a>提取商品信息</h1><h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1>
 	
 
     </div>
@@ -194,10 +189,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Codewars</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
         		</li>
@@ -210,10 +201,6 @@
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Codewars/" class="article-tag-list-link color4">Codewars</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="/categories/Python/" class="article-tag-list-link color2">Python</a>
         		</li>
@@ -233,18 +220,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/17/005-Python-+-Flask-+-uWSGI-+-Nginx-搭建淘宝商品搜索网站（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/04/13/003-Codewars-之-Multiples-of-3-and-5-解法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Codewars 之 Multiples of 3 and 5 解法</div>
+    <a href="/2017/10/11/004-Codewars-之-A-Rule-of-Divisibility-by-13-解法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codewars 之 A Rule of Divisibility by 13 解法</div>
       <i class="icon-circle-right"></i>
     </a>
   
