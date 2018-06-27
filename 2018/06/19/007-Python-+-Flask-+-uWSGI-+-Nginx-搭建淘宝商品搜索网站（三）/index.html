@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Wiken">
 <meta property="og:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第三步：在 CentOS 上以 uWSGI + Nginx 部署">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-27T03:49:23.250Z">
+<meta property="og:updated_time" content="2018-06-27T05:58:20.912Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（三）">
 <meta name="twitter:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第三步：在 CentOS 上以 uWSGI + Nginx 部署">
@@ -176,9 +176,18 @@
     <div class="article-entry" itemprop="articleBody">
       
 	
-		<p>网址：<a href="http://wiken.app" target="_blank" rel="noopener">www.wiken.app</a><br>淘宝商品搜索网站搭建第三步：在 CentOS 上以 uWSGI + Nginx 部署</p>
+		<blockquote>
+<p>   网址：<a href="http://wiken.app" target="_blank" rel="noopener">www.wiken.app</a><br>淘宝商品搜索网站搭建第三步：<code>在 CentOS 上以 uWSGI + Nginx 部署</code></p>
+</blockquote>
 <a id="more"></a>
-<h1 id="uWSGI-安装与配置"><a href="#uWSGI-安装与配置" class="headerlink" title="uWSGI 安装与配置"></a>uWSGI 安装与配置</h1><h1 id="Nginx-安装与配置"><a href="#Nginx-安装与配置" class="headerlink" title="Nginx 安装与配置"></a>Nginx 安装与配置</h1>
+<h1 id="uWSGI-安装与配置"><a href="#uWSGI-安装与配置" class="headerlink" title="uWSGI 安装与配置"></a>uWSGI 安装与配置</h1><p>uWSGI 安装：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install uwsgi</span><br></pre></td></tr></table></figure></p>
+<p>uWSGI 配置（config.ini）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line">socket = <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8080</span></span><br><span class="line">chdir = /root/py3/ <span class="comment">#发布目录</span></span><br><span class="line">wsgi-file = manage.py <span class="comment">#入口文件</span></span><br><span class="line">callable = app <span class="comment">#应用名</span></span><br><span class="line">py-autoreload = <span class="number">1</span></span><br><span class="line">stats = <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9191</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="Nginx-安装与配置"><a href="#Nginx-安装与配置" class="headerlink" title="Nginx 安装与配置"></a>Nginx 安装与配置</h1><p>Nginx 安装：</p>
+<blockquote>
+<p>   参考 <a href="http://www.runoob.com/linux/nginx-install-setup.html" target="_blank" rel="noopener">此文章</a></p>
+</blockquote>
+<p>Nginx 配置（此时网站仅支持 http 访问）：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       <span class="number">80</span>;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line">        <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line">        location / &#123;</span><br><span class="line">            include      uwsgi_params;</span><br><span class="line">            uwsgi_pass   <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">8080</span>;</span><br><span class="line">            uwsgi_param UWSGI_PYHOME /root/py3/envPy3;</span><br><span class="line">            uwsgi_param UWSGI_CHDIR  /root/py3/;</span><br><span class="line">            uwsgi_param UWSGI_SCRIPT manage:app;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+
 	
 
     </div>

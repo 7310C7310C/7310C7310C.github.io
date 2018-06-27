@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Wiken">
 <meta property="og:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第一步：程序逻辑的设计与编写">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-27T03:36:08.108Z">
+<meta property="og:updated_time" content="2018-06-27T04:25:00.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（一）">
 <meta name="twitter:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第一步：程序逻辑的设计与编写">
@@ -176,7 +176,9 @@
     <div class="article-entry" itemprop="articleBody">
       
 	
-		<p>网址：<a href="http://wiken.app" target="_blank" rel="noopener">www.wiken.app</a><br>淘宝商品搜索网站搭建第一步：程序逻辑的设计与编写</p>
+		<blockquote>
+<p>   网址：<a href="http://wiken.app" target="_blank" rel="noopener">www.wiken.app</a><br>淘宝商品搜索网站搭建第一步：<code>程序逻辑的设计与编写</code></p>
+</blockquote>
 <a id="more"></a>
 <h1 id="获取淘宝搜索结果网页源代码"><a href="#获取淘宝搜索结果网页源代码" class="headerlink" title="获取淘宝搜索结果网页源代码"></a>获取淘宝搜索结果网页源代码</h1><p>使用 requests 模块获取源代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getCode</span><span class="params">(url, headers)</span>:</span></span><br><span class="line">    r = requests.get(url, headers=headers)</span><br><span class="line">    r.encoding = <span class="string">'utf-8'</span></span><br><span class="line">    <span class="keyword">return</span> r.text</span><br></pre></td></tr></table></figure></p>
 <p>判断表单数据是关键词还是链接后再获取源代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">keyword_orUrl = request.form.get(<span class="string">"keyword_orUrl"</span>)</span><br><span class="line"><span class="keyword">if</span> keyword_orUrl.startswith(<span class="string">'https://'</span>):</span><br><span class="line">    splited = keyword_orUrl.split(<span class="string">'&amp;s='</span>)</span><br><span class="line">    url = splited[<span class="number">0</span>] + <span class="string">'&amp;s='</span> + str(int(splited[<span class="number">1</span>])+<span class="number">44</span>)</span><br><span class="line">    code = getCode(url, headers)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    keyword = keyword_orUrl</span><br><span class="line">    url = <span class="string">'https://s.taobao.com/search?q='</span> + keyword + <span class="string">'&amp;cd=false&amp;s=0'</span></span><br><span class="line">    code = getCode(url, headers)</span><br></pre></td></tr></table></figure></p>
