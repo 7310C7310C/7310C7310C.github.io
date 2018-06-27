@@ -16,10 +16,13 @@
 <meta property="og:site_name" content="Wiken">
 <meta property="og:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第五步：添加 https 支持（SSL 证书的申请）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-06-27T06:21:22.916Z">
+<meta property="og:image" content="http://wiken.top/imgs/04.jpg">
+<meta property="og:image" content="http://wiken.top/imgs/05.jpg">
+<meta property="og:updated_time" content="2018-06-27T07:27:09.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python + Flask + uWSGI + Nginx 搭建淘宝商品搜索网站（五）">
 <meta name="twitter:description" content="网址：www.wiken.app淘宝商品搜索网站搭建第五步：添加 https 支持（SSL 证书的申请）">
+<meta name="twitter:image" content="http://wiken.top/imgs/04.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Wiken" type="application/atom+xml">
   
@@ -180,8 +183,8 @@
 <p>   网址：<a href="http://wiken.app" target="_blank" rel="noopener">www.wiken.app</a><br>淘宝商品搜索网站搭建第五步：<code>添加 https 支持（SSL 证书的申请）</code></p>
 </blockquote>
 <a id="more"></a>
-<h1 id="阿里云-SSL-证书申请"><a href="#阿里云-SSL-证书申请" class="headerlink" title="阿里云 SSL 证书申请"></a>阿里云 SSL 证书申请</h1><p>为了配置 https 支持，需要申请受浏览器信任的 SSL 证书，这里选择阿里云的 Symantec 免费版 SSL：</p>
-<h1 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h1><p>审核通过并签发后，下载证书到服务器本地，并配置 nginx.conf：</p>
+<h1 id="阿里云-SSL-证书申请"><a href="#阿里云-SSL-证书申请" class="headerlink" title="阿里云 SSL 证书申请"></a>阿里云 SSL 证书申请</h1><p>为了配置 https 支持，需要申请受浏览器信任的 SSL 证书，这里选择阿里云的 Symantec 免费版 SSL：<br><img src="/imgs/04.jpg" alt="avatar"></p>
+<h1 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h1><p>审核通过并签发后，下载证书到服务器本地，并配置 nginx.conf：<br><img src="/imgs/05.jpg" alt="avatar"></p>
 <pre><code class="python">server {
     listen <span class="number">443</span>;
     server_name localhost;
